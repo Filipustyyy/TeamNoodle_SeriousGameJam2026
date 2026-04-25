@@ -1,14 +1,8 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerTether : MonoBehaviour
 {
-    [Header("Interaction")]
-    [SerializeField] private float interactRadius = 1.5f;
-    [SerializeField] private LayerMask outletLayer;
-    [SerializeField] private InputActionReference interactAction;
-
     [Header("References")]
     [SerializeField] private LineRenderer cord;
 
@@ -37,6 +31,13 @@ public class PlayerTether : MonoBehaviour
         if (nearest != null) Plug(nearest);
     }
 
+    public void Plug(PowerOutlet outlet)
+    {
+        if (outlet == null || outlet == currentOutlet) return;
+        currentOutlet = outlet;
+        if (cord != null) cord.enabled = true;
+    }
+
     private PowerOutlet FindNearestOutlet()
     {
         var outlets = Object.FindObjectsByType<PowerOutlet>(FindObjectsInactive.Exclude);
@@ -49,42 +50,6 @@ public class PlayerTether : MonoBehaviour
             if (sqr < bestSqr) { bestSqr = sqr; best = o; }
         }
         return best;
-    }
-
-    private void Plug(PowerOutlet outlet)
-    {
-        currentOutlet = outlet;
-        if (cord != null) cord.enabled = true;
-    }
-
-    private void OnEnable()
-    {
-        if (interactAction == null) return;
-        interactAction.action.performed += OnInteract;
-        interactAction.action.Enable();
-    }
-
-    private void OnDisable()
-    {
-        if (interactAction == null) return;
-        interactAction.action.performed -= OnInteract;
-    }
-
-    private void OnInteract(InputAction.CallbackContext _)
-    {
-        TryPlug();
-    }
-
-    private void TryPlug()
-    {
-        var hit = Physics2D.OverlapCircle(transform.position, interactRadius, outletLayer);
-        if (hit == null) return;
-
-        var outlet = hit.GetComponent<PowerOutlet>() ?? hit.GetComponentInParent<PowerOutlet>();
-        if (outlet == null) return;
-        if (outlet == currentOutlet) return;
-
-        Plug(outlet);
     }
 
     private void FixedUpdate()
@@ -112,11 +77,5 @@ public class PlayerTether : MonoBehaviour
         if (currentOutlet == null || cord == null) return;
         cord.SetPosition(0, currentOutlet.transform.position);
         cord.SetPosition(1, transform.position);
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, interactRadius);
     }
 }

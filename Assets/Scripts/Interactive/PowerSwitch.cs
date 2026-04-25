@@ -12,8 +12,6 @@ public class PowerSwitch : MonoBehaviour, IInteractable
         if (targetOutlet != null && !_isOn)
         {
             targetOutlet.PowerOn();
-            
-            Debug.Log($"Switch flipped by {interactor.name}");
         }
         else
         {

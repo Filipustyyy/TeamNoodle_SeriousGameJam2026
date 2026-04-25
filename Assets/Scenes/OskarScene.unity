@@ -233,7 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 467984688}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: outlets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -800,6 +800,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ground
       objectReference: {fileID: 0}
+    - target: {fileID: 8104628084413869789, guid: d9ec56458085b467ca2f19691ac5e411, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -923,6 +927,10 @@ PrefabInstance:
     - target: {fileID: 8104628084413869789, guid: d9ec56458085b467ca2f19691ac5e411, type: 3}
       propertyPath: m_Name
       value: Platform (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104628084413869789, guid: d9ec56458085b467ca2f19691ac5e411, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInteractor : MonoBehaviour
+public class 
+    PlayerInteractor : MonoBehaviour
 {
     [Header("Interaction")]
     [SerializeField] private float interactRadius = 1.5f;

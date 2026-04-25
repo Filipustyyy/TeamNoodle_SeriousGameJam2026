@@ -1,8 +1,17 @@
 using UnityEngine;
+using FMODUnity;
 
 public class PowerOutlet : MonoBehaviour, IInteractable
 {
     [SerializeField] private bool IsPowered = true;
+
+    private StudioEventEmitter emitter;
+
+    private void Start()
+    {
+        emitter = AudioManager.instance.InitializeEventEmitter(FMODEvents.instance.socketIdle, this.gameObject);
+        emitter.Play();
+    }
 
     public void Interact(GameObject interactor)
     {

@@ -273,20 +273,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b87e871fd1822a46b61f17848c8b274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FMODEvents
+  <ambience>k__BackingField:
+    Guid:
+      Data1: 590749755
+      Data2: 1205938170
+      Data3: 1108873402
+      Data4: -706332192
+    Path: event:/SFX/Ambience/DroneDark
   <playerFootsteps>k__BackingField:
     Guid:
       Data1: 1354502939
       Data2: 1164499869
       Data3: -1184884577
       Data4: 1642755304
-    Path: event:/PlayerFootsteps
+    Path: event:/SFX/Player/PlayerFootsteps
+  <playerGrounded>k__BackingField:
+    Guid:
+      Data1: 2065781209
+      Data2: 1131540463
+      Data3: 1764643979
+      Data4: 518177796
+    Path: event:/SFX/Player/Grounded
   <attachTether>k__BackingField:
     Guid:
       Data1: -1542888644
       Data2: 1270012516
       Data3: 642182539
       Data4: 1279712772
-    Path: event:/AttachTether
+    Path: event:/SFX/Socket/AttachTether
+  <socketIdle>k__BackingField:
+    Guid:
+      Data1: 94462063
+      Data2: 1197179346
+      Data3: -1443423871
+      Data4: 543350826
+    Path: event:/SFX/Socket/SocketIdle
 --- !u!1 &467984687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,6 +1266,14 @@ PrefabInstance:
     - target: {fileID: 4930856761178947396, guid: e9bbf7f2c87cb4a9db70db82bf11ff9a, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396404342664395591, guid: e9bbf7f2c87cb4a9db70db82bf11ff9a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396404342664395591, guid: e9bbf7f2c87cb4a9db70db82bf11ff9a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

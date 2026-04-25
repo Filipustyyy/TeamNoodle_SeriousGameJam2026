@@ -99,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
         var movement = speedDiff * rate;
         rb.AddForce(new Vector2(movement * Time.fixedDeltaTime, 0f), ForceMode2D.Impulse);
 
-        rb.gravityScale = rb.linearVelocity.y < 0f ? baseGravity * fallGravityMultiplier : baseGravity;
+        rb.gravityScale = baseGravity * fallGravityMultiplier;
 
         if (rb.linearVelocity.y < -maxFallSpeed)
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, -maxFallSpeed);

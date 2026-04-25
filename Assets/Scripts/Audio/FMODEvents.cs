@@ -13,7 +13,11 @@ public class FMODEvents : MonoBehaviour
 
     private void Awake()
     {
-        if (instance is not null ) Debug.LogError("More than one FMODEvents script present in the scene.");
+        if (instance != null )
+        {
+            Debug.LogError("More than one FMODEvents script present in the scene.");
+            Destroy(gameObject);
+        }
         instance = this;
     }
     

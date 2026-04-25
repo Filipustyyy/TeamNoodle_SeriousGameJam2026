@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 1284119827662770098}
   - component: {fileID: 2241128157926218843}
   - component: {fileID: 316118060597379346}
+  - component: {fileID: 7743249302756062252}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -241,11 +242,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55f09ecf45944ddeb7566c960d6013c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTether
-  interactRadius: 1.5
-  outletLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  interactAction: {fileID: 1781555164194001046, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   cord: {fileID: 316118060597379346}
 --- !u!120 &316118060597379346
 LineRenderer:
@@ -357,6 +353,23 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &7743249302756062252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4930856761178947396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee51fa1e2481419b932ca9eb8320eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
+  interactRadius: 1.5
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  interactAction: {fileID: 1781555164194001046, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!1 &5411871878176766576
 GameObject:
   m_ObjectHideFlags: 0

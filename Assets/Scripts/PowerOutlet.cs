@@ -1,20 +1,18 @@
 using UnityEngine;
 
-public class PowerOutlet : MonoBehaviour
+public class PowerOutlet : MonoBehaviour, IInteractable
 {
     [SerializeField] private float cordLength = 5f;
-    [SerializeField] private bool isPowered = true;
 
     public float CordLength => cordLength;
-    public bool IsPowered => isPowered;
 
-    public void TogglePower()
+    public void Interact(GameObject interactor)
     {
-        isPowered = !isPowered;
-        
-        Debug.Log($"{gameObject.name} power state is now: {isPowered}");
+        var tether = interactor.GetComponent<PlayerTether>();
+        if (tether == null) return;
+        tether.Plug(this);
     }
-    
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;

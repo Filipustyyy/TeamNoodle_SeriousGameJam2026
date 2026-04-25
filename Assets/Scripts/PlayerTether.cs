@@ -32,6 +32,29 @@ public class PlayerTether : MonoBehaviour
             cord.positionCount = 2;
             cord.enabled = false;
         }
+
+        var nearest = FindNearestOutlet();
+        if (nearest != null) Plug(nearest);
+    }
+
+    private PowerOutlet FindNearestOutlet()
+    {
+        var outlets = Object.FindObjectsByType<PowerOutlet>(FindObjectsInactive.Exclude);
+        PowerOutlet best = null;
+        float bestSqr = float.PositiveInfinity;
+        Vector2 me = transform.position;
+        foreach (var o in outlets)
+        {
+            float sqr = ((Vector2)o.transform.position - me).sqrMagnitude;
+            if (sqr < bestSqr) { bestSqr = sqr; best = o; }
+        }
+        return best;
+    }
+
+    private void Plug(PowerOutlet outlet)
+    {
+        currentOutlet = outlet;
+        if (cord != null) cord.enabled = true;
     }
 
     private void OnEnable()
@@ -61,8 +84,7 @@ public class PlayerTether : MonoBehaviour
         if (outlet == null) return;
         if (outlet == currentOutlet) return;
 
-        currentOutlet = outlet;
-        if (cord != null) cord.enabled = true;
+        Plug(outlet);
     }
 
     private void FixedUpdate()

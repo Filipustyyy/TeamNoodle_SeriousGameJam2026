@@ -216,15 +216,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 7
-  acceleration: 60
-  deceleration: 70
-  jumpForce: 13
-  jumpCutMultiplier: 0.5
+  acceleration: 70
+  deceleration: 80
+  jumpForce: 20
+  jumpCutMultiplier: 0.6
   coyoteTime: 0.1
   jumpBuffer: 0.1
   maxJumps: 2
-  fallGravityMultiplier: 2
-  maxFallSpeed: 20
+  fallGravityMultiplier: 3
+  maxFallSpeed: 25
   groundCheck: {fileID: 6396404342664395591}
   groundCheckRadius: 0.15
   groundLayer:
@@ -243,7 +243,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTether
   cord: {fileID: 316118060597379346}
-  baseCordLength: 7
+  baseCordLength: 20
+--- !u!114 &211085359389440567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4930856761178947396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f42b65674cefe4e9b88b9ec33b9bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteract
+  interactRadius: 1.5
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!120 &316118060597379346
 LineRenderer:
   serializedVersion: 3
@@ -396,7 +412,7 @@ Transform:
   m_GameObject: {fileID: 5411871878176766576}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15, y: -1.5, z: 0}
+  m_LocalPosition: {x: 0, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

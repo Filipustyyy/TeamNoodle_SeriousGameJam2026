@@ -1,4 +1,3 @@
-using FMODUnity;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,9 +11,6 @@ public class PlayerTether : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private LineRenderer cord;
-    
-    [Header("Sound event references")] 
-    [SerializeField] private EventReference attachTether;
 
     private Rigidbody2D rb;
     private PowerOutlet currentOutlet;
@@ -57,7 +53,6 @@ public class PlayerTether : MonoBehaviour
 
     private void Plug(PowerOutlet outlet)
     {
-        AudioManager.instance.PlayOneShot(attachTether, this.transform.position);
         currentOutlet = outlet;
         if (cord != null) cord.enabled = true;
     }

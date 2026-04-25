@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class PowerSwitch : Interactable
+public class PowerSwitch : MonoBehaviour, IInteractable
 {
     [Header("Connections")]
     [SerializeField] private PowerOutlet targetOutlet;
     
     private bool _isOn = false;
 
-    public override void Interact(GameObject interactor)
+    public void Interact(GameObject interactor)
     {
         if (targetOutlet != null && !_isOn)
         {

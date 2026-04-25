@@ -17,7 +17,6 @@ public class PlayerInteract : MonoBehaviour
 
     private void TryInteract()
     {
-        Debug.Log($"{gameObject.name} interact");
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, interactRadius, interactableLayer);
         
         if (hits.Length == 0) return;

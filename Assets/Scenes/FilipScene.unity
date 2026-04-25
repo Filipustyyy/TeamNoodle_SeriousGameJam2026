@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 1725106748}
   - component: {fileID: 1725106747}
   - component: {fileID: 1725106750}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: PowerSwitch
   m_TagString: Untagged
   m_Icon: {fileID: 0}

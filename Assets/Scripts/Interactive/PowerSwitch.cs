@@ -9,10 +9,9 @@ public class PowerSwitch : MonoBehaviour, IInteractable
 
     public void Interact(GameObject interactor)
     {
-        Debug.Log("lyle");
         if (targetOutlet != null && !_isOn)
         {
-            targetOutlet.TogglePower();
+            targetOutlet.PowerOn();
             
             Debug.Log($"Switch flipped by {interactor.name}");
         }

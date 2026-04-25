@@ -37,6 +37,10 @@ public class PlayerMovement : MonoBehaviour
     private bool facingRight = false;
     private int jumpsRemaining;
 
+    public bool IsGrounded => isGrounded;
+    public float MoveInputX => inputX;
+    public float VelocityY => rb.linearVelocity.y;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

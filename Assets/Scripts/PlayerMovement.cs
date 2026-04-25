@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMOD.Studio;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
@@ -25,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float groundCheckRadius = 0.15f;
     [SerializeField] private LayerMask groundLayer;
 
+    private EventInstance playerFootsteps;
+
     private Rigidbody2D rb;
     private float baseGravity;
     private float inputX;
@@ -39,6 +42,11 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
         baseGravity = rb.gravityScale;
+    }
+
+    private void Start()
+    {
+        playerFootsteps = AudioManager.instance.CreateEventInstance(FMODEvents.instance.playerFootsteps);
     }
 
     private void Update()
@@ -102,6 +110,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (rb.linearVelocity.y < -maxFallSpeed)
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, -maxFallSpeed);
+        
+        UpdateSound();
     }
 
     private void Flip()
@@ -110,6 +120,21 @@ public class PlayerMovement : MonoBehaviour
         var s = transform.localScale;
         s.x *= -1f;
         transform.localScale = s;
+    }
+
+    private void UpdateSound()
+    {
+        if (rb.linearVelocityX != 0 && isGrounded)
+        {
+            PLAYBACK_STATE playbackState;
+            playerFootsteps.getPlaybackState(out playbackState);
+            if (playbackState == PLAYBACK_STATE.STOPPED) playerFootsteps.start();
+
+        }
+        else
+        {
+            playerFootsteps.stop(STOP_MODE.ALLOWFADEOUT);
+        }
     }
 
     private void OnDrawGizmosSelected()

@@ -62,7 +62,11 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = groundCheck &&
             Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        if (isGrounded && !wasGrounded) jumpsRemaining = maxJumps;
+        if (isGrounded && !wasGrounded)
+        {
+            jumpsRemaining = maxJumps;
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.playerGrounded, groundCheck.transform.position);
+        }
 
         coyoteCounter = isGrounded ? coyoteTime : coyoteCounter - Time.deltaTime;
 
@@ -129,7 +133,6 @@ public class PlayerMovement : MonoBehaviour
             PLAYBACK_STATE playbackState;
             playerFootsteps.getPlaybackState(out playbackState);
             if (playbackState == PLAYBACK_STATE.STOPPED) playerFootsteps.start();
-
         }
         else
         {

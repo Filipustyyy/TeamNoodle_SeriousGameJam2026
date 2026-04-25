@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     private List<StudioEventEmitter> eventEmitterList;
 
     private EventInstance ambienceEventInstance;
+    private EventInstance musicEventInstance;
     
     public static AudioManager instance { get; private set; }
 
@@ -25,6 +26,7 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         InitializeAmbience(FMODEvents.instance.ambience);
+        InitializeAmbience(FMODEvents.instance.music);
     }
 
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
@@ -36,6 +38,12 @@ public class AudioManager : MonoBehaviour
     {
         ambienceEventInstance = CreateEventInstance(ambienceEventReference);
         ambienceEventInstance.start();
+    }
+
+    private void InitializeMusic(EventReference musicEventReference)
+    {
+        musicEventInstance = CreateEventInstance(musicEventReference);
+        musicEventInstance.start();
     }
 
     public EventInstance CreateEventInstance(EventReference eventReference)

@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private float coyoteCounter;
     private float jumpBufferCounter;
     private bool isGrounded;
-    private bool facingRight = true;
+    private bool facingRight = false;
     private int jumpsRemaining;
 
     private void Awake()

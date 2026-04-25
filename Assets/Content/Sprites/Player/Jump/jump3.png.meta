@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 3324a26a40c59fe4ba03bf284bb0c276
+guid: 8f05081a4b6ebdd45b8916a4748c7cf0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8725583791009165418
-    second: walk1_0
+      213: -3937395983013798283
+    second: jump3_0
+  - first:
+      213: -6304608246120704075
+    second: jump3_1
+  - first:
+      213: 1924494387725541898
+    second: jump3_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 250
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: walk1_0
+      name: jump3_0
       rect:
         serializedVersion: 2
-        x: 803
-        y: 160
-        width: 355
-        height: 713
+        x: 812
+        y: 543
+        width: 9
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a60f1015a30871970800000000000000
-      internalID: 8725583791009165418
+      spriteID: 57e9964f63f8b59c0800000000000000
+      internalID: -3937395983013798283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump3_1
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 141
+        width: 345
+        height: 745
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b71af114388188a0800000000000000
+      internalID: -6304608246120704075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump3_2
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 425
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a022d90037d25ba10800000000000000
+      internalID: 1924494387725541898
       vertices: []
       indices: 
       edges: []
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      walk1_0: 8725583791009165418
+      jump3_0: -3937395983013798283
+      jump3_1: -6304608246120704075
+      jump3_2: 1924494387725541898
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

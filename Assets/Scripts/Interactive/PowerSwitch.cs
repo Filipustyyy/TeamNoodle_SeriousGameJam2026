@@ -9,6 +9,7 @@ public class PowerSwitch : MonoBehaviour, IInteractable
 
     public void Interact(GameObject interactor)
     {
+        Debug.Log("lyle");
         if (targetOutlet != null && !_isOn)
         {
             targetOutlet.TogglePower();

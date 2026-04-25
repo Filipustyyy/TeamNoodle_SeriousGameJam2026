@@ -15,6 +15,7 @@ public class PowerOutlet : MonoBehaviour, IInteractable
 
     public void Interact(GameObject interactor)
     {
+        if (!IsPowered) return;
         var tether = interactor.GetComponent<PlayerTether>();
         if (tether == null) return;
         tether.Plug(this);

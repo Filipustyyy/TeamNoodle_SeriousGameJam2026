@@ -18,7 +18,7 @@ public class InputController : MonoBehaviour
         
         _input.Player.Jump.performed += _ => OnJump?.Invoke();
         _input.Player.Interact.performed += _ => OnInteract?.Invoke();
-        
+        _input.Enable();
     }
     
     void Update()

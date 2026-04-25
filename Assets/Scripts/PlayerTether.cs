@@ -59,7 +59,7 @@ public class PlayerTether : MonoBehaviour
 
         var outlet = hit.GetComponent<PowerOutlet>() ?? hit.GetComponentInParent<PowerOutlet>();
         if (outlet == null) return;
-        if (outlet == currentOutlet) return;
+        if (outlet == currentOutlet || !outlet.IsPowered) return;
 
         currentOutlet = outlet;
         if (cord != null) cord.enabled = true;

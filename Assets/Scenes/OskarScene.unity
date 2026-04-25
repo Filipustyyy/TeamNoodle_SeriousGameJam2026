@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 125524074}
   - component: {fileID: 125524073}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 302693705}
   - component: {fileID: 302693706}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ Transform:
   m_GameObject: {fileID: 302693704}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08, y: -2.02, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 12.56, y: 1.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -358,6 +358,7 @@ MonoBehaviour:
   jumpCutMultiplier: 0.5
   coyoteTime: 0.1
   jumpBuffer: 0.1
+  maxJumps: 2
   fallGravityMultiplier: 2
   maxFallSpeed: 20
   groundCheck: {fileID: 1409949375}
@@ -447,7 +448,7 @@ Transform:
   m_GameObject: {fileID: 1464105759}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

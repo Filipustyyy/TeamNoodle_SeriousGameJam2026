@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpCutMultiplier = 0.5f;
     [SerializeField] private float coyoteTime = 0.1f;
     [SerializeField] private float jumpBuffer = 0.1f;
+    [SerializeField] private int maxJumps = 2;
 
     [Header("Gravity")]
     [SerializeField] private float fallGravityMultiplier = 2f;
@@ -31,10 +32,12 @@ public class PlayerMovement : MonoBehaviour
     private float jumpBufferCounter;
     private bool isGrounded;
     private bool facingRight = true;
+    private int jumpsRemaining;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.freezeRotation = true;
         baseGravity = rb.gravityScale;
     }
 
@@ -47,22 +50,38 @@ public class PlayerMovement : MonoBehaviour
         var right = (kb.dKey.isPressed || kb.rightArrowKey.isPressed) ? 1f : 0f;
         inputX = right - left;
 
+        var wasGrounded = isGrounded;
         isGrounded = groundCheck &&
             Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        if (isGrounded && !wasGrounded) jumpsRemaining = maxJumps;
 
         coyoteCounter = isGrounded ? coyoteTime : coyoteCounter - Time.deltaTime;
 
         var jumpPressed = kb.spaceKey.wasPressedThisFrame || kb.wKey.wasPressedThisFrame || kb.upArrowKey.wasPressedThisFrame;
         var jumpReleased = kb.spaceKey.wasReleasedThisFrame || kb.wKey.wasReleasedThisFrame || kb.upArrowKey.wasReleasedThisFrame;
 
-        if (jumpPressed) { jumpBufferCounter = jumpBuffer; Debug.Log($"Jump pressed. grounded={isGrounded} coyote={coyoteCounter:F2}"); }
-        else jumpBufferCounter -= Time.deltaTime;
+        if (jumpPressed)
+        {
+            jumpBufferCounter = jumpBuffer;
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
 
         if (jumpBufferCounter > 0f && coyoteCounter > 0f)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             jumpBufferCounter = 0f;
             coyoteCounter = 0f;
+            jumpsRemaining = maxJumps - 1;
+        }
+        else if (jumpPressed && jumpsRemaining > 0)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            jumpBufferCounter = 0f;
+            jumpsRemaining--;
         }
 
         if (jumpReleased && rb.linearVelocity.y > 0f)

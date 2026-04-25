@@ -40,15 +40,22 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
         baseGravity = rb.gravityScale;
     }
+    
+    private void OnEnable()
+    {
+        InputController.OnJumpPressed += HandleJumpPressed;
+        InputController.OnJumpReleased += HandleJumpReleased;
+    }
+
+    private void OnDisable()
+    {
+        InputController.OnJumpPressed -= HandleJumpPressed;
+        InputController.OnJumpReleased -= HandleJumpReleased;
+    }
 
     private void Update()
     {
-        var kb = Keyboard.current;
-        if (kb == null) return;
-
-        var left = (kb.aKey.isPressed || kb.leftArrowKey.isPressed) ? 1f : 0f;
-        var right = (kb.dKey.isPressed || kb.rightArrowKey.isPressed) ? 1f : 0f;
-        inputX = right - left;
+        inputX = InputController.MoveInput.x;
 
         var wasGrounded = isGrounded;
         isGrounded = groundCheck &&
@@ -58,34 +65,20 @@ public class PlayerMovement : MonoBehaviour
 
         coyoteCounter = isGrounded ? coyoteTime : coyoteCounter - Time.deltaTime;
 
-        var jumpPressed = kb.spaceKey.wasPressedThisFrame || kb.wKey.wasPressedThisFrame || kb.upArrowKey.wasPressedThisFrame;
-        var jumpReleased = kb.spaceKey.wasReleasedThisFrame || kb.wKey.wasReleasedThisFrame || kb.upArrowKey.wasReleasedThisFrame;
-
-        if (jumpPressed)
-        {
-            jumpBufferCounter = jumpBuffer;
-        }
-        else
-        {
-            jumpBufferCounter -= Time.deltaTime;
-        }
+        coyoteCounter = isGrounded ? coyoteTime : coyoteCounter - Time.deltaTime;
+        jumpBufferCounter -= Time.deltaTime;
 
         if (jumpBufferCounter > 0f && coyoteCounter > 0f)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            jumpBufferCounter = 0f;
+            ExecuteJump();
             coyoteCounter = 0f;
             jumpsRemaining = maxJumps - 1;
         }
-        else if (jumpPressed && jumpsRemaining > 0)
+        else if (jumpBufferCounter > 0f && jumpsRemaining > 0)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            jumpBufferCounter = 0f;
+            ExecuteJump();
             jumpsRemaining--;
         }
-
-        if (jumpReleased && rb.linearVelocity.y > 0f)
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * jumpCutMultiplier);
 
         if ((inputX > 0f && !facingRight) || (inputX < 0f && facingRight)) Flip();
     }
@@ -102,6 +95,25 @@ public class PlayerMovement : MonoBehaviour
 
         if (rb.linearVelocity.y < -maxFallSpeed)
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, -maxFallSpeed);
+    }
+    
+    private void HandleJumpPressed()
+    {
+        jumpBufferCounter = jumpBuffer;
+    }
+
+    private void HandleJumpReleased()
+    {
+        if (rb.linearVelocity.y > 0f)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * jumpCutMultiplier);
+        }
+    }
+    
+    private void ExecuteJump()
+    {
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        jumpBufferCounter = 0f;
     }
 
     private void Flip()

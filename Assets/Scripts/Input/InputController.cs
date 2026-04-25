@@ -6,19 +6,23 @@ public class InputController : MonoBehaviour
     public static InputController instance;
 
     public static Action OnMove;
-    public static Action OnJump;
+    public static Action OnJumpPressed;
+    public static Action OnJumpReleased;
     public static Action OnInteract;
+    
+    public static Vector2 MoveInput { get; private set; }
     
     private InputSystem _input;
 
     void Awake()
     {
-        instance = this;
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
+        
         _input = new InputSystem();
         
-        Debug.Log("Input Controller Awake ran!");
-        
-        _input.Player.Jump.started += _ => OnJump?.Invoke();
+        _input.Player.Jump.started += _ => OnJumpPressed?.Invoke();
+        _input.Player.Jump.canceled += _ => OnJumpReleased?.Invoke();
         _input.Player.Interact.started += _ => OnInteract?.Invoke();
         _input.Enable();
     }
@@ -30,10 +34,11 @@ public class InputController : MonoBehaviour
 
     private void HandleInput()
     {
-        Vector2 moveInput = _input.Player.Move.ReadValue<Vector2>();
-        if (moveInput.x != 0 || moveInput.y != 0)
-        {
-            OnMove?.Invoke();
-        }
+        MoveInput = _input.Player.Move.ReadValue<Vector2>();
+    }
+    
+    private void OnDestroy()
+    {
+        if (_input != null) _input.Disable();
     }
 }

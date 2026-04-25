@@ -16,9 +16,11 @@ public class InputController : MonoBehaviour
         instance = this;
         _input = new InputSystem();
         
-        _input.Player.Jump.performed += _ => OnJump?.Invoke();
-        _input.Player.Interact.performed += _ => OnInteract?.Invoke();
+        Debug.Log("Input Controller Awake ran!");
         
+        _input.Player.Jump.started += _ => OnJump?.Invoke();
+        _input.Player.Interact.started += _ => OnInteract?.Invoke();
+        _input.Enable();
     }
     
     void Update()

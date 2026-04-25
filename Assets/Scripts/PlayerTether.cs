@@ -1,14 +1,21 @@
 using UnityEngine;
-using FMODUnity;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerTether : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private LineRenderer cord;
-    
-    [Header("Sound event references")] 
-    [SerializeField] private EventReference attachTether;
+
+    [Header("Cord")]
+    [SerializeField] private float baseCordLength = 7f;
+    private float bonusCordLength = 0f;
+
+    public float MaxCordLength => Mathf.Max(0f, baseCordLength + bonusCordLength);
+    public float BaseCordLength => baseCordLength;
+    public float BonusCordLength => bonusCordLength;
+
+    public void AddCordLength(float delta) => bonusCordLength += delta;
+    public void SetBonusCordLength(float total) => bonusCordLength = total;
 
     private Rigidbody2D rb;
     private PowerOutlet currentOutlet;
@@ -40,7 +47,7 @@ public class PlayerTether : MonoBehaviour
         if (outlet == null || outlet == currentOutlet) return;
         currentOutlet = outlet;
         if (cord != null) cord.enabled = true;
-        AudioManager.instance?.PlayOneShot(attachTether, this.transform.position);
+        AudioManager.instance?.PlayOneShot(FMODEvents.instance.attachTether, this.transform.position);
     }
 
     private PowerOutlet FindNearestOutlet()
@@ -64,7 +71,7 @@ public class PlayerTether : MonoBehaviour
         Vector2 anchor = currentOutlet.transform.position;
         Vector2 pos = rb.position;
         Vector2 delta = pos - anchor;
-        float maxDist = currentOutlet.CordLength;
+        float maxDist = MaxCordLength;
 
         if (delta.sqrMagnitude <= maxDist * maxDist) return;
 

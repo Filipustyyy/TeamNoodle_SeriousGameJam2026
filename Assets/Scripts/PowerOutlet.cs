@@ -2,10 +2,7 @@ using UnityEngine;
 
 public class PowerOutlet : MonoBehaviour, IInteractable
 {
-    [SerializeField] private float cordLength = 5f;
     [SerializeField] private bool IsPowered = true;
-
-    public float CordLength => cordLength;
 
     public void Interact(GameObject interactor)
     {
@@ -18,10 +15,12 @@ public class PowerOutlet : MonoBehaviour, IInteractable
     {
         IsPowered = true;
     }
-    
+
     private void OnDrawGizmosSelected()
     {
+        var tether = FindFirstObjectByType<PlayerTether>(FindObjectsInactive.Include);
+        if (tether == null) return;
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, cordLength);
+        Gizmos.DrawWireSphere(transform.position, tether.MaxCordLength);
     }
 }

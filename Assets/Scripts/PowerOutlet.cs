@@ -7,8 +7,6 @@ public class PowerOutlet : MonoBehaviour, IInteractable
 
     private StudioEventEmitter emitter;
 
-    public float CordLength => cordLength;
-
     private void Start()
     {
         emitter = AudioManager.instance.InitializeEventEmitter(FMODEvents.instance.socketIdle, this.gameObject);

@@ -1,16 +1,21 @@
+using FMODUnity;
 using UnityEngine;
 
 public class FMODEvents : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public static FMODEvents instance { get; private set; }
 
-    // Update is called once per frame
-    void Update()
+    [field: Header("Player SFX")]
+    [field: SerializeField] public EventReference playerFootsteps { get; private set; }
+    
+    [field: Header("AttachTetherSFX")]
+    [field: SerializeField] public EventReference attachTether { get; private set; }
+
+    private void Awake()
     {
-        
+        if (instance is not null ) Debug.LogError("More than one FMODEvents script present in the scene.");
+        instance = this;
     }
+    
+    
 }

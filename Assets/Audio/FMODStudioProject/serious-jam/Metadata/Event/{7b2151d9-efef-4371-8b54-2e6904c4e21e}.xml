@@ -96,6 +96,8 @@
 	<object class="MixerBusEffectChain" id="{7f7e1d5a-8a70-47ea-a18a-c851a6a17344}">
 		<relationship name="effects">
 			<destination>{1daf1a9c-0f99-47ff-a9b8-ee46d9b06403}</destination>
+			<destination>{b5288579-a7f4-412b-b513-5f5158816044}</destination>
+			<destination>{b5c6c34b-8403-4bcb-b026-6b69fb06dbf8}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{f907e10f-e227-429d-b63d-c099b33e65dd}" />
@@ -106,4 +108,48 @@
 	</object>
 	<object class="MixerBusFader" id="{19cc4e66-85ff-4484-8c75-830bbd1134e0}" />
 	<object class="MixerBusFader" id="{1daf1a9c-0f99-47ff-a9b8-ee46d9b06403}" />
+	<object class="PitchShifterEffect" id="{b5288579-a7f4-412b-b513-5f5158816044}">
+		<property name="pitch">
+			<value>1</value>
+		</property>
+		<property name="fftSize">
+			<value>256</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{4782d718-78f7-4c8b-be05-335bc91f7505}</destination>
+		</relationship>
+	</object>
+	<object class="FlangerEffect" id="{b5c6c34b-8403-4bcb-b026-6b69fb06dbf8}">
+		<property name="delay">
+			<value>0.119999997</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{fac76f47-0fc3-4692-992b-d3ac013de738}</destination>
+			<destination>{c5398a4a-597a-4cfc-ac59-9be1652baf5a}</destination>
+		</relationship>
+	</object>
+	<object class="RandomizerModulator" id="{4782d718-78f7-4c8b-be05-335bc91f7505}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>9.5</value>
+		</property>
+	</object>
+	<object class="RandomizerModulator" id="{fac76f47-0fc3-4692-992b-d3ac013de738}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>rate</value>
+		</property>
+		<property name="amount">
+			<value>15.5</value>
+		</property>
+	</object>
+	<object class="RandomizerModulator" id="{c5398a4a-597a-4cfc-ac59-9be1652baf5a}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>delay</value>
+		</property>
+		<property name="amount">
+			<value>19.5</value>
+		</property>
+	</object>
 </objects>

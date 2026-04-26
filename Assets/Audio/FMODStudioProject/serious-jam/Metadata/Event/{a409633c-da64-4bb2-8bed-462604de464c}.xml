@@ -100,6 +100,8 @@
 		<relationship name="effects">
 			<destination>{e6703257-0c26-420c-aee1-868842c28e9a}</destination>
 			<destination>{8be8d7ca-54bd-4e19-ae0e-67ade589285a}</destination>
+			<destination>{0c4ed550-28c0-4803-b436-1a405333924d}</destination>
+			<destination>{52c321cd-d2e0-433c-9f5c-da3bbb5ec348}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{55491ecb-80e2-41d9-94d2-0c733be5067e}" />
@@ -113,6 +115,47 @@
 	<object class="SFXReverbEffect" id="{8be8d7ca-54bd-4e19-ae0e-67ade589285a}">
 		<property name="wetLevel">
 			<value>-20</value>
+		</property>
+	</object>
+	<object class="FlangerEffect" id="{0c4ed550-28c0-4803-b436-1a405333924d}">
+		<property name="delay">
+			<value>0.125</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{839b72b9-2509-4b52-ba3e-1081ce1e8103}</destination>
+			<destination>{5a888437-aab8-4602-9b54-59d3480fd4f0}</destination>
+		</relationship>
+	</object>
+	<object class="PitchShifterEffect" id="{52c321cd-d2e0-433c-9f5c-da3bbb5ec348}">
+		<property name="pitch">
+			<value>1</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{40f865a3-a071-47c3-8f3f-16df91d0e86f}</destination>
+		</relationship>
+	</object>
+	<object class="RandomizerModulator" id="{839b72b9-2509-4b52-ba3e-1081ce1e8103}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>delay</value>
+		</property>
+		<property name="amount">
+			<value>17</value>
+		</property>
+	</object>
+	<object class="RandomizerModulator" id="{5a888437-aab8-4602-9b54-59d3480fd4f0}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>rate</value>
+		</property>
+		<property name="amount">
+			<value>20</value>
+		</property>
+	</object>
+	<object class="RandomizerModulator" id="{40f865a3-a071-47c3-8f3f-16df91d0e86f}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>6.5</value>
 		</property>
 	</object>
 </objects>

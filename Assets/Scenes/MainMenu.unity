@@ -1323,6 +1323,13 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  <menuMusic>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <playerFootsteps>k__BackingField:
     Guid:
       Data1: 0
@@ -1345,6 +1352,13 @@ MonoBehaviour:
       Data4: 0
     Path: 
   <socketIdle>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <powerSwitch>k__BackingField:
     Guid:
       Data1: 0
       Data2: 0
@@ -1727,11 +1741,11 @@ MonoBehaviour:
   creditsPanel: {fileID: 1223493549}
   menuMusicEvent:
     Guid:
-      Data1: -792888607
-      Data2: 1293657288
-      Data3: 1993664686
-      Data4: 1173510888
-    Path: event:/Music/Music1
+      Data1: 759871066
+      Data2: 1331783883
+      Data3: 2014378378
+      Data4: -1042728576
+    Path: event:/Music/MenuMusic
 --- !u!4 &1534333432
 Transform:
   m_ObjectHideFlags: 0

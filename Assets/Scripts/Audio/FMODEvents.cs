@@ -11,15 +11,18 @@ public class FMODEvents : MonoBehaviour
     
     [field: Header("Music")]
     [field: SerializeField] public EventReference music { get; private set; }
+    [field: SerializeField] public EventReference menuMusic { get; private set; }
 
     [field: Header("Player SFX")]
     [field: SerializeField] public EventReference playerFootsteps { get; private set; }
     [field: SerializeField] public EventReference playerGrounded { get; private set; }
     
     
-    [field: Header("SocketSFX")]
+    [field: Header("GameplaySFX")]
     [field: SerializeField] public EventReference attachTether { get; private set; }
     [field: SerializeField] public EventReference socketIdle { get; private set; }
+    
+    [field: SerializeField] public EventReference powerSwitch { get; private set; }
     
     [field: Header("MenuSFX")]
     [field: SerializeField] public EventReference button { get; private set; }

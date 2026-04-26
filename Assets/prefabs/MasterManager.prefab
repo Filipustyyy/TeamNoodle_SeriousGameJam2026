@@ -357,6 +357,13 @@ MonoBehaviour:
     Path: event:/SFX/Socket/SocketIdle
   <powerSwitch>k__BackingField:
     Guid:
+      Data1: -1856877421
+      Data2: 1275880660
+      Data3: 1436855983
+      Data4: -1116009288
+    Path: event:/SFX/Gameplay/SwitchSocket
+  <cableCollected>k__BackingField:
+    Guid:
       Data1: 1085612649
       Data2: 1138401658
       Data3: 1416083349
@@ -399,7 +406,7 @@ Transform:
   m_GameObject: {fileID: 8071733163729359623}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -46.148853, y: -27.71044, z: -10}
+  m_LocalPosition: {x: -74.65885, y: -24.50044, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

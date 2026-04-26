@@ -45,7 +45,12 @@ public class PlayerTether : MonoBehaviour
     public void Plug(PowerOutlet outlet)
     {
         if (outlet == null || outlet == currentOutlet) return;
+        if (currentOutlet != null)
+        {
+            currentOutlet.Unplug();
+        }
         currentOutlet = outlet;
+        outlet.Plug();
         if (cord != null) cord.enabled = true;
         AudioManager.instance?.PlayOneShot(FMODEvents.instance.attachTether, this.transform.position);
     }

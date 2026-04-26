@@ -24,8 +24,9 @@ public class DialogPresenter : MonoBehaviour
     private DialogRequest current;
     private int lineIndex;
     private bool open;
+    private int openedFrame = -1;
 
-    private PlayerInteractor playerInteractor;
+    private PlayerInteract playerInteract;
     private PlayerMovement playerMovement;
 
     private void Awake()
@@ -62,6 +63,7 @@ public class DialogPresenter : MonoBehaviour
     private void OnAdvance(InputAction.CallbackContext _)
     {
         if (!open) return;
+        if (Time.frameCount == openedFrame) return;
         lineIndex++;
         if (current.Lines == null || lineIndex >= current.Lines.Length)
             StartNext();
@@ -79,6 +81,8 @@ public class DialogPresenter : MonoBehaviour
         current = queue.Dequeue();
         lineIndex = 0;
         open = true;
+        openedFrame = Time.frameCount;
+        DialogBus.IsOpen = true;
         SetVisible(true);
         LockPlayerInput(true);
         Render();
@@ -87,6 +91,8 @@ public class DialogPresenter : MonoBehaviour
     private void Close()
     {
         open = false;
+        DialogBus.IsOpen = false;
+        DialogBus.LastClosedFrame = Time.frameCount;
         SetVisible(false);
         LockPlayerInput(false);
     }
@@ -108,13 +114,13 @@ public class DialogPresenter : MonoBehaviour
 
     private void LockPlayerInput(bool locked)
     {
-        if (playerInteractor == null)
-            playerInteractor = FindAnyObjectByType<PlayerInteractor>();
+        if (playerInteract == null)
+            playerInteract = FindAnyObjectByType<PlayerInteract>();
         if (playerMovement == null)
             playerMovement = FindAnyObjectByType<PlayerMovement>();
 
-        if (playerInteractor != null)
-            playerInteractor.enabled = !locked;
+        if (playerInteract != null)
+            playerInteract.enabled = !locked;
         if (playerMovement != null)
         {
             playerMovement.enabled = !locked;

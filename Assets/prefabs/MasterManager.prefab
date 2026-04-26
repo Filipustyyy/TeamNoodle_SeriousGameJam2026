@@ -244,11 +244,11 @@ MonoBehaviour:
     Path: event:/Music/Music1
   <playerFootsteps>k__BackingField:
     Guid:
-      Data1: 1354502939
-      Data2: 1164499869
-      Data3: -1184884577
-      Data4: 1642755304
-    Path: event:/SFX/Player/PlayerFootsteps
+      Data1: -33800654
+      Data2: 1312163689
+      Data3: -1380684389
+      Data4: 1701444626
+    Path: event:/SFX/Player/PlayerFootstepsMetal
   <playerGrounded>k__BackingField:
     Guid:
       Data1: 2065781209

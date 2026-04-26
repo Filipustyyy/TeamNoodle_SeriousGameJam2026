@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/MainGame.unity
     guid: 1c432c8dcba024741b806d113dcb5298
+  - enabled: 1
+    path: Assets/Scenes/EndScreen.unity
+    guid: 1f180320b19f940a2941be13583dd93d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

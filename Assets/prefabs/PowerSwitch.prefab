@@ -83,8 +83,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.9596043, a: 1}
+  m_Sprite: {fileID: -3615571815869518498, guid: e8547dc28aaa2cc419667042b0e955f1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -106,6 +106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerSwitch
   targetOutlet: {fileID: 0}
+  onSprite: {fileID: -958683577268090029, guid: 1f36ad310525d9541b86610d343260f5, type: 3}
+  offSprite: {fileID: -3615571815869518498, guid: e8547dc28aaa2cc419667042b0e955f1, type: 3}
 --- !u!58 &7322757455884574841
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{37b2d111-09a6-4ea9-8be2-f80dc4621702}">
+		<property name="assetPath">
+			<value>ambience/city-ambience.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>200.14266666666666</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a07d0d6d-e9bf-4a83-9f66-8569c29b1ba4}</destination>
+		</relationship>
+	</object>
+</objects>

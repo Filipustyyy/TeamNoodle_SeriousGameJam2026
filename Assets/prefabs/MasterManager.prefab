@@ -235,6 +235,13 @@ MonoBehaviour:
       Data3: 1108873402
       Data4: -706332192
     Path: event:/SFX/Ambience/DroneDark
+  <cityAmbience>k__BackingField:
+    Guid:
+      Data1: -1832276754
+      Data2: 1313178901
+      Data3: -1373179239
+      Data4: -1981038512
+    Path: event:/SFX/Ambience/CityAmbience
   <music>k__BackingField:
     Guid:
       Data1: -792888607

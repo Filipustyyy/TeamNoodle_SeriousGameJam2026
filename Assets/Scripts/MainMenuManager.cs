@@ -1,6 +1,5 @@
 using FMOD.Studio;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -51,7 +50,7 @@ public class MainMenuManager : MonoBehaviour
     {
         PlayButtonSound();
         _musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneTransition.Instance.LoadScene("MainGame");
     }
 
     public void CreditsButton()
@@ -64,7 +63,7 @@ public class MainMenuManager : MonoBehaviour
     {
         PlayButtonSound();
         _musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        Application.Quit();
+        SceneTransition.Instance.QuitGame();
     }
 
     private void PlayButtonSound()

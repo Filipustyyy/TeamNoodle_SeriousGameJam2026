@@ -5,7 +5,7 @@
 			<value>Dubstep</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{0fde0e35-5410-4ac6-b7b5-52c9896c1cc1}</destination>
@@ -30,6 +30,9 @@
 		</relationship>
 		<relationship name="timeline">
 			<destination>{601b8f94-de74-47d8-a712-12ace61ffbbf}</destination>
+		</relationship>
+		<relationship name="banks">
+			<destination>{b2215f16-072c-40ca-9e61-f8fc35416b90}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{8dc74214-753a-4d15-bec3-486a86e5f67f}">
@@ -100,6 +103,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{98afc1d1-a432-4598-96f9-4c429ad28453}">
+		<property name="volume">
+			<value>-6</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -137,9 +143,19 @@
 	<object class="MixerBusEffectChain" id="{cfd63757-87a7-4a8a-8c82-a79647f7e0df}">
 		<relationship name="effects">
 			<destination>{60d58a70-7c62-43d2-9eb5-8b04fb353e15}</destination>
+			<destination>{42185296-8a8c-4e4b-82ff-b5e699af7729}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{0c2408db-6356-4969-80c5-5bab40fb10f2}" />
+	<object class="MixerBusPanner" id="{0c2408db-6356-4969-80c5-5bab40fb10f2}">
+		<property name="surroundPanExtent">
+			<value>180</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{31c5926f-edeb-4e1a-82c8-24a06783f459}" />
 	<object class="MixerBusFader" id="{60d58a70-7c62-43d2-9eb5-8b04fb353e15}" />
+	<object class="SpatialiserEffect" id="{42185296-8a8c-4e4b-82ff-b5e699af7729}">
+		<property name="distanceRolloffType">
+			<value>3</value>
+		</property>
+	</object>
 </objects>

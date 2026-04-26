@@ -105,7 +105,6 @@ GameObject:
   - component: {fileID: 1284119827662770098}
   - component: {fileID: 2241128157926218843}
   - component: {fileID: 316118060597379346}
-  - component: {fileID: 7743249302756062252}
   - component: {fileID: 211085359389440567}
   - component: {fileID: 733765805755513273}
   - component: {fileID: 4772489561835311698}
@@ -358,23 +357,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &7743249302756062252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4930856761178947396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ee51fa1e2481419b932ca9eb8320eaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
-  interactRadius: 1.5
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  interactAction: {fileID: 1781555164194001046, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!114 &211085359389440567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,7 +372,7 @@ MonoBehaviour:
   interactRadius: 1.5
   interactableLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!95 &733765805755513273
 Animator:
   serializedVersion: 7

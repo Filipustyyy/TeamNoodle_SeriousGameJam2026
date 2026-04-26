@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2285555926083885430}
   - component: {fileID: 3753256123663314849}
   - component: {fileID: 3638300494561339221}
+  - component: {fileID: 7395284619273648510}
   m_Layer: 0
   m_Name: CM Player Camera
   m_TagString: Untagged
@@ -548,3 +549,23 @@ Transform:
   - {fileID: 1288497554684915009}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7395284619273648510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488454816124939593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
+  m_Name: ""
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineConfiner2D
+  BoundingShape2D: {fileID: 0}
+  Damping: 0
+  SlowingDistance: 0
+  OversizeWindow:
+    Enabled: 0
+    MaxWindowSize: 0
+    Padding: 0
+  m_LegacyMaxWindowSize: -2

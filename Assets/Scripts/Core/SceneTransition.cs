@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -32,6 +33,11 @@ public class SceneTransition : MonoBehaviour
         Instance = this;
 
         BuildOverlay();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(FadeIn());
     }
 
     private void BuildOverlay()

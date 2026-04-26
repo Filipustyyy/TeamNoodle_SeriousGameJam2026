@@ -7,6 +7,11 @@ public class EndZoneTrigger : MonoBehaviour
 
     private bool _triggered;
 
+    private void Awake()
+    {
+        _triggered = false;
+    }
+    
     private void Reset()
     {
         var col = GetComponent<BoxCollider2D>();
@@ -15,9 +20,11 @@ public class EndZoneTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(other.gameObject.name);
         if (_triggered) return;
         if (!other.CompareTag("Player")) return;
         _triggered = true;
+        Debug.Log("hahh");
         SceneTransition.Instance.LoadScene(targetScene);
     }
 }

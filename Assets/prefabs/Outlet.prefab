@@ -81,8 +81,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.28974253, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: -4716483144097434984, guid: 4c5577e65a7c1744cb94373ca01cdb21, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -174,8 +174,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce80ff942deac4ade86c23c49bdf8bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerOutlet
-  cordLength: 20
-  IsPowered: 1
+  isPowered: 1
+  spriteRenderer: {fileID: 5297102264897193341}
+  onUnpluggedSprite: {fileID: -4716483144097434984, guid: 4c5577e65a7c1744cb94373ca01cdb21, type: 3}
+  offUnpluggedSprite: {fileID: -2467088739858943824, guid: 7f24a1640a697474d81947ceb6352836, type: 3}
+  onPluggedSprite: {fileID: 144321033041373817, guid: 5cf65f9d1ab9dbb4aa35f3122f91b78e, type: 3}
+  offPluggedSprite: {fileID: -746062439659878758, guid: 010ca9c8734a1c442ae40644d6358529, type: 3}
 --- !u!114 &7371979721187812774
 MonoBehaviour:
   m_ObjectHideFlags: 0

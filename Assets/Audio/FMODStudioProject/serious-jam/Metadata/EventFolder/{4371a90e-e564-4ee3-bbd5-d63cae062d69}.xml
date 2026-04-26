@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EventFolder" id="{4371a90e-e564-4ee3-bbd5-d63cae062d69}">
+		<property name="name">
+			<value>Pendrive</value>
+		</property>
+		<relationship name="folder">
+			<destination>{124a14b8-cf7f-4641-bfa6-4ddef8227ca9}</destination>
+		</relationship>
+	</object>
+</objects>

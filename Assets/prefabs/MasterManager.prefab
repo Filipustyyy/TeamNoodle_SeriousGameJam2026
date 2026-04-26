@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2285555926083885430}
   - component: {fileID: 3753256123663314849}
   - component: {fileID: 3638300494561339221}
+  - component: {fileID: 7395284619273648510}
   m_Layer: 0
   m_Name: CM Player Camera
   m_TagString: Untagged
@@ -95,6 +96,56 @@ MonoBehaviour:
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
   FollowOffset: {x: 0, y: 0, z: -10}
+--- !u!1 &3013727747089952114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1288497554684915009}
+  - component: {fileID: 3409273083964571990}
+  m_Layer: 0
+  m_Name: DialogPresenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1288497554684915009
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3013727747089952114}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3558322507902185422}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3409273083964571990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3013727747089952114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da40a2d44069548598757bb7233aa1a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogPresenter
+  advanceAction: {fileID: 1781555164194001046, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  panelColor: {r: 0, g: 0, b: 0, a: 0.85}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+  speakerFontSize: 28
+  lineFontSize: 22
+  hintFontSize: 14
 --- !u!1 &3173294397233096544
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,6 +286,13 @@ MonoBehaviour:
       Data3: 1108873402
       Data4: -706332192
     Path: event:/SFX/Ambience/DroneDark
+  <cityAmbience>k__BackingField:
+    Guid:
+      Data1: -1832276754
+      Data2: 1313178901
+      Data3: -1373179239
+      Data4: -1981038512
+    Path: event:/SFX/Ambience/CityAmbience
   <music>k__BackingField:
     Guid:
       Data1: -792888607
@@ -244,11 +302,11 @@ MonoBehaviour:
     Path: event:/Music/Music1
   <playerFootsteps>k__BackingField:
     Guid:
-      Data1: 1354502939
-      Data2: 1164499869
-      Data3: -1184884577
-      Data4: 1642755304
-    Path: event:/SFX/Player/PlayerFootsteps
+      Data1: -33800654
+      Data2: 1312163689
+      Data3: -1380684389
+      Data4: 1701444626
+    Path: event:/SFX/Player/PlayerFootstepsMetal
   <playerGrounded>k__BackingField:
     Guid:
       Data1: 2065781209
@@ -300,7 +358,7 @@ Transform:
   m_GameObject: {fileID: 8071733163729359623}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -74.65885, y: -24.50044, z: -10}
+  m_LocalPosition: {x: -69.94885, y: -24.81044, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -488,5 +546,26 @@ Transform:
   - {fileID: 3598639494217958776}
   - {fileID: 1112198150868858128}
   - {fileID: 2285555926083885430}
+  - {fileID: 1288497554684915009}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7395284619273648510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488454816124939593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
+  m_Name: ""
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineConfiner2D
+  BoundingShape2D: {fileID: 0}
+  Damping: 0
+  SlowingDistance: 0
+  OversizeWindow:
+    Enabled: 0
+    MaxWindowSize: 0
+    Padding: 0
+  m_LegacyMaxWindowSize: -2

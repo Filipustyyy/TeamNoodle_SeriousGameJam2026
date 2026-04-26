@@ -187,6 +187,26 @@ PrefabInstance:
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 1464105763}
+    - target: {fileID: 4669805844664252252, guid: e62e2b1f16b682a40996e0a907aa034e, type: 3}
+      propertyPath: <playerFootsteps>k__BackingField.Path
+      value: event:/SFX/Player/PlayerFootstepsMetal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669805844664252252, guid: e62e2b1f16b682a40996e0a907aa034e, type: 3}
+      propertyPath: <playerFootsteps>k__BackingField.Guid.Data1
+      value: -33800654
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669805844664252252, guid: e62e2b1f16b682a40996e0a907aa034e, type: 3}
+      propertyPath: <playerFootsteps>k__BackingField.Guid.Data2
+      value: 1312163689
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669805844664252252, guid: e62e2b1f16b682a40996e0a907aa034e, type: 3}
+      propertyPath: <playerFootsteps>k__BackingField.Guid.Data3
+      value: -1380684389
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669805844664252252, guid: e62e2b1f16b682a40996e0a907aa034e, type: 3}
+      propertyPath: <playerFootsteps>k__BackingField.Guid.Data4
+      value: 1701444626
+      objectReference: {fileID: 0}
     - target: {fileID: 8119694394939974721, guid: e62e2b1f16b682a40996e0a907aa034e, type: 3}
       propertyPath: m_Name
       value: MasterManager

@@ -20,6 +20,9 @@ public class FMODEvents : MonoBehaviour
     [field: Header("SocketSFX")]
     [field: SerializeField] public EventReference attachTether { get; private set; }
     [field: SerializeField] public EventReference socketIdle { get; private set; }
+    
+    [field: Header("MenuSFX")]
+    [field: SerializeField] public EventReference button { get; private set; }
 
     private void Awake()
     {

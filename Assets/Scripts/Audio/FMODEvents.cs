@@ -21,8 +21,8 @@ public class FMODEvents : MonoBehaviour
     [field: Header("GameplaySFX")]
     [field: SerializeField] public EventReference attachTether { get; private set; }
     [field: SerializeField] public EventReference socketIdle { get; private set; }
-    
     [field: SerializeField] public EventReference powerSwitch { get; private set; }
+    [field: SerializeField] public EventReference cableCollected { get; private set; }
     
     [field: Header("MenuSFX")]
     [field: SerializeField] public EventReference button { get; private set; }

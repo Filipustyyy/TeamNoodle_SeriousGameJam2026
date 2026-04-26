@@ -16,5 +16,8 @@ public static class DialogBus
 {
     public static event Action<DialogRequest> OnRequest;
 
+    public static bool IsOpen;
+    public static int LastClosedFrame = -1;
+
     public static void Request(DialogRequest req) => OnRequest?.Invoke(req);
 }

@@ -8,6 +8,7 @@ public class PlayerTether : MonoBehaviour
 
     [Header("Cord")]
     [SerializeField] private float baseCordLength = 7f;
+    [SerializeField] private int cordSortingOrder = 5;
     private float bonusCordLength = 0f;
 
     public float MaxCordLength => Mathf.Max(0f, baseCordLength + bonusCordLength);
@@ -35,6 +36,7 @@ public class PlayerTether : MonoBehaviour
         if (cord != null)
         {
             cord.positionCount = 2;
+            cord.sortingOrder = cordSortingOrder;
             cord.enabled = false;
         }
 

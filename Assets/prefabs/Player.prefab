@@ -79,7 +79,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -247,6 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTether
   cord: {fileID: 316118060597379346}
   baseCordLength: 20
+  cordSortingOrder: 5
 --- !u!120 &316118060597379346
 LineRenderer:
   serializedVersion: 3
@@ -273,7 +274,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: a8527eb68f64e47509e48fe1fedd1a8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -307,7 +308,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.28313255
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -455,7 +456,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5071563641634004584, guid: f20b5935183b0334b8dd6b7e3f7f094c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

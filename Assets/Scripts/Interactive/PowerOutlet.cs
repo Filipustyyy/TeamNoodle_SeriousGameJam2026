@@ -3,7 +3,16 @@ using FMODUnity;
 
 public class PowerOutlet : MonoBehaviour, IInteractable
 {
-    [SerializeField] private bool IsPowered = true;
+    [SerializeField] private bool isPowered = true;
+    public bool IsPowered => isPowered;
+    
+    public bool IsPluggedIn { get; private set; }
+    
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite onUnpluggedSprite;
+    [SerializeField] private Sprite offUnpluggedSprite;
+    [SerializeField] private Sprite onPluggedSprite;
+    [SerializeField] private Sprite offPluggedSprite;
 
     private StudioEventEmitter emitter;
 
@@ -11,19 +20,46 @@ public class PowerOutlet : MonoBehaviour, IInteractable
     {
         emitter = AudioManager.instance.InitializeEventEmitter(FMODEvents.instance.socketIdle, this.gameObject);
         emitter.Play();
+        UpdateSprite();
     }
 
     public void Interact(GameObject interactor)
     {
-        if (!IsPowered) return;
+        if (!isPowered) return;
         var tether = interactor.GetComponent<PlayerTether>();
         if (tether == null) return;
         tether.Plug(this);
     }
 
+    public void Plug()
+    {
+        IsPluggedIn = true;
+        UpdateSprite();
+    }
+
+    public void Unplug()
+    {
+        IsPluggedIn = false;
+        UpdateSprite();
+    }
+
     public void PowerOn()
     {
-        IsPowered = true;
+        isPowered = true;
+    }
+
+    private void UpdateSprite()
+    {
+        if (spriteRenderer == null) return;
+
+        if (isPowered && IsPluggedIn)
+            spriteRenderer.sprite = onPluggedSprite;
+        else if (isPowered && !IsPluggedIn)
+            spriteRenderer.sprite = onUnpluggedSprite;
+        else if (!isPowered && IsPluggedIn)
+            spriteRenderer.sprite = offPluggedSprite;
+        else
+            spriteRenderer.sprite = offUnpluggedSprite;
     }
 
     private void OnDrawGizmosSelected()

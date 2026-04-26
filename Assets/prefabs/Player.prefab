@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTether
   cord: {fileID: 316118060597379346}
-  baseCordLength: 20
+  baseCordLength: 15
   cordSortingOrder: 5
 --- !u!120 &316118060597379346
 LineRenderer:

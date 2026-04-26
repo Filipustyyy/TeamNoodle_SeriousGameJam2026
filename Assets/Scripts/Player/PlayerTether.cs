@@ -97,4 +97,18 @@ public class PlayerTether : MonoBehaviour
         cord.SetPosition(0, currentOutlet.transform.position);
         cord.SetPosition(1, transform.position);
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Vector3 anchor = currentOutlet != null ? currentOutlet.transform.position : transform.position;
+
+        Gizmos.color = new Color(0f, 1f, 0f, 0.6f);
+        Gizmos.DrawWireSphere(anchor, baseCordLength);
+
+        if (Application.isPlaying && bonusCordLength > 0f)
+        {
+            Gizmos.color = new Color(1f, 1f, 0f, 0.6f);
+            Gizmos.DrawWireSphere(anchor, MaxCordLength);
+        }
+    }
 }

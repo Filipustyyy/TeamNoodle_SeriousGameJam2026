@@ -4218,8 +4218,8 @@ MonoBehaviour:
       Data4: 1046486738
     Path: event:/Music/Dubstep
   Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0

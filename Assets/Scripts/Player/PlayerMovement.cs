@@ -155,6 +155,11 @@ public class PlayerMovement : MonoBehaviour
             playerFootsteps.stop(STOP_MODE.ALLOWFADEOUT);
         }
     }
+    
+    public void StopPlayer()
+    {
+        rb.linearVelocity = new Vector2(0, 0);
+    }
 
     private void OnDrawGizmosSelected()
     {

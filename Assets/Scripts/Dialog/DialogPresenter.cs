@@ -32,6 +32,7 @@ public class DialogPresenter : MonoBehaviour
     {
         BuildUi();
         SetVisible(false);
+        Debug.Log("Dialog Presenter Awake");
     }
 
     private void OnEnable()
@@ -39,6 +40,7 @@ public class DialogPresenter : MonoBehaviour
         DialogBus.OnRequest += OnRequest;
         if (advanceAction != null)
         {
+            Debug.Log("Dialog Presenter OnEnable");
             advanceAction.action.performed += OnAdvance;
             advanceAction.action.Enable();
         }

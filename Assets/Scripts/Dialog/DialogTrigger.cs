@@ -7,6 +7,7 @@ public class DialogTrigger : MonoBehaviour
 
     public void Trigger()
     {
+        Debug.Log(speakerName);
         if (lines == null || lines.Length == 0) return;
         DialogBus.Request(new DialogRequest(speakerName, lines));
     }

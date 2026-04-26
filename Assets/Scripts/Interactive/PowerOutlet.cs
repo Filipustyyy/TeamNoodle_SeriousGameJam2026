@@ -46,6 +46,7 @@ public class PowerOutlet : MonoBehaviour, IInteractable
     public void PowerOn()
     {
         isPowered = true;
+        UpdateSprite();
     }
 
     private void UpdateSprite()

@@ -17,6 +17,8 @@ public class PlayerInteract : MonoBehaviour
 
     private void TryInteract()
     {
+        if (DialogBus.IsOpen) return;
+        if (Time.frameCount == DialogBus.LastClosedFrame) return;
         Debug.unityLogger.Log("Trying to interact");
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, interactRadius, interactableLayer);
         

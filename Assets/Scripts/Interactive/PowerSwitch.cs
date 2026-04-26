@@ -9,23 +9,23 @@ public class PowerSwitch : MonoBehaviour, IInteractable
     [SerializeField] private Sprite onSprite;
     [SerializeField] private Sprite offSprite;
     
-    private bool _isOn = false;
+    private bool _isOn;
 
     void Awake()
     {
+        _isOn = false;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _spriteRenderer.sprite = offSprite;
     }
     
     public void Interact(GameObject interactor)
     {
-        
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.powerSwitch, transform.position);
         if (targetOutlet != null && !_isOn)
         {
             targetOutlet.PowerOn();
             _isOn = true;
             _spriteRenderer.sprite = onSprite;
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.powerSwitch, transform.position);
         }
         
     }

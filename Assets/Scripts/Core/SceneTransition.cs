@@ -43,7 +43,6 @@ public class SceneTransition : MonoBehaviour
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         canvas.sortingOrder = 32767;
 
-        canvasGo.AddComponent<CanvasScaler>();
         canvasGo.AddComponent<GraphicRaycaster>();
 
         var imageGo = new GameObject("Black");
@@ -76,6 +75,7 @@ public class SceneTransition : MonoBehaviour
 
     private void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (mode != LoadSceneMode.Single) return;
         StartCoroutine(FadeIn());
     }
 

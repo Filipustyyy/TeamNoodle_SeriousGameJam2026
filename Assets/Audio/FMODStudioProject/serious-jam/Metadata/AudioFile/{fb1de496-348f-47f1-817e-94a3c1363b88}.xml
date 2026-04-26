@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{de8dcf99-89be-4322-859f-51bdbd58cd05}">
+	<object class="AudioFile" id="{fb1de496-348f-47f1-817e-94a3c1363b88}">
 		<property name="assetPath">
-			<value>music/street_wip.wav</value>
+			<value>music/main_menu.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
@@ -14,7 +14,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>73.846145124716557</value>
+			<value>58.947369614512475</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{a07d0d6d-e9bf-4a83-9f66-8569c29b1ba4}</destination>

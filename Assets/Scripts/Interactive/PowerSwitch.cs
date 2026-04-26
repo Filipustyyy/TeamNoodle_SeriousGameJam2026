@@ -19,6 +19,8 @@ public class PowerSwitch : MonoBehaviour, IInteractable
     
     public void Interact(GameObject interactor)
     {
+        
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.powerSwitch, transform.position);
         if (targetOutlet != null && !_isOn)
         {
             targetOutlet.PowerOn();

@@ -415,6 +415,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1311278320604376134, guid: e9bbf7f2c87cb4a9db70db82bf11ff9a, type: 3}
       propertyPath: m_LocalPosition.x
+      value: 6.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1311278320604376134, guid: e9bbf7f2c87cb4a9db70db82bf11ff9a, type: 3}
+      propertyPath: m_LocalPosition.x
       value: 23.8
       objectReference: {fileID: 0}
     - target: {fileID: 1311278320604376134, guid: e9bbf7f2c87cb4a9db70db82bf11ff9a, type: 3}
@@ -707,23 +711,23 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6695579795412310937, guid: d188b61838ca443e8a7fd53360a64d8f, type: 3}
-      propertyPath: 'lines.Array.data[0]'
+      propertyPath: lines.Array.data[0]
       value: You're off to see the sky film, eh?
       objectReference: {fileID: 0}
     - target: {fileID: 6695579795412310937, guid: d188b61838ca443e8a7fd53360a64d8f, type: 3}
-      propertyPath: 'lines.Array.data[1]'
+      propertyPath: lines.Array.data[1]
       value: I heard it's a real blockbuster.
       objectReference: {fileID: 0}
     - target: {fileID: 6695579795412310937, guid: d188b61838ca443e8a7fd53360a64d8f, type: 3}
-      propertyPath: 'lines.Array.data[2]'
+      propertyPath: lines.Array.data[2]
       value: Well, off you then. I'll stay here and... Tend to these flowers.
       objectReference: {fileID: 0}
     - target: {fileID: 6695579795412310937, guid: d188b61838ca443e8a7fd53360a64d8f, type: 3}
-      propertyPath: 'lines.Array.data[3]'
+      propertyPath: lines.Array.data[3]
       value: Bye
       objectReference: {fileID: 0}
     - target: {fileID: 6695579795412310937, guid: d188b61838ca443e8a7fd53360a64d8f, type: 3}
-      propertyPath: 'lines.Array.data[4]'
+      propertyPath: lines.Array.data[4]
       value: Bye
       objectReference: {fileID: 0}
     - target: {fileID: 8576831159963334426, guid: d188b61838ca443e8a7fd53360a64d8f, type: 3}
@@ -3215,15 +3219,15 @@ PrefabInstance:
       value: Megafen
       objectReference: {fileID: 0}
     - target: {fileID: 6695579795412310937, guid: d188b61838ca443e8a7fd53360a64d8f, type: 3}
-      propertyPath: 'lines.Array.data[0]'
+      propertyPath: lines.Array.data[0]
       value: 'Oughhhhoooo I see you see the sky gurl.... I *hic* You see... '
       objectReference: {fileID: 0}
     - target: {fileID: 6695579795412310937, guid: d188b61838ca443e8a7fd53360a64d8f, type: 3}
-      propertyPath: 'lines.Array.data[1]'
+      propertyPath: lines.Array.data[1]
       value: 'I saw th- the skyu bloughhhh... '
       objectReference: {fileID: 0}
     - target: {fileID: 6695579795412310937, guid: d188b61838ca443e8a7fd53360a64d8f, type: 3}
-      propertyPath: 'lines.Array.data[2]'
+      propertyPath: lines.Array.data[2]
       value: kur*a i need more of this...
       objectReference: {fileID: 0}
     - target: {fileID: 8576831159963334426, guid: d188b61838ca443e8a7fd53360a64d8f, type: 3}
@@ -4274,6 +4278,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1112198150868858128, guid: e62e2b1f16b682a40996e0a907aa034e, type: 3}
       propertyPath: m_LocalPosition.x
+      value: -63.68885
+      objectReference: {fileID: 0}
+    - target: {fileID: 1112198150868858128, guid: e62e2b1f16b682a40996e0a907aa034e, type: 3}
+      propertyPath: m_LocalPosition.x
       value: -46.148853
       objectReference: {fileID: 0}
     - target: {fileID: 1112198150868858128, guid: e62e2b1f16b682a40996e0a907aa034e, type: 3}
@@ -4287,6 +4295,10 @@ PrefabInstance:
     - target: {fileID: 2285555926083885430, guid: e62e2b1f16b682a40996e0a907aa034e, type: 3}
       propertyPath: m_LocalPosition.y
       value: -27.71044
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285555926083885430, guid: e62e2b1f16b682a40996e0a907aa034e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -63.68885
       objectReference: {fileID: 0}
     - target: {fileID: 3558322507902185422, guid: e62e2b1f16b682a40996e0a907aa034e, type: 3}
       propertyPath: m_LocalPosition.x

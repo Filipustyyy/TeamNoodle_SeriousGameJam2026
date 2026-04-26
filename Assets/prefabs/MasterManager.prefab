@@ -320,6 +320,13 @@ MonoBehaviour:
       Data3: 1993664686
       Data4: 1173510888
     Path: event:/Music/Music1
+  <menuMusic>k__BackingField:
+    Guid:
+      Data1: 759871066
+      Data2: 1331783883
+      Data3: 2014378378
+      Data4: -1042728576
+    Path: event:/Music/MenuMusic
   <playerFootsteps>k__BackingField:
     Guid:
       Data1: -33800654
@@ -348,6 +355,13 @@ MonoBehaviour:
       Data3: -1443423871
       Data4: 543350826
     Path: event:/SFX/Socket/SocketIdle
+  <powerSwitch>k__BackingField:
+    Guid:
+      Data1: 1085612649
+      Data2: 1138401658
+      Data3: 1416083349
+      Data4: -450680729
+    Path: event:/SFX/Gameplay/CableCollected
   <button>k__BackingField:
     Guid:
       Data1: -358149505
@@ -385,7 +399,7 @@ Transform:
   m_GameObject: {fileID: 8071733163729359623}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -74.65885, y: -24.50044, z: -10}
+  m_LocalPosition: {x: -46.148853, y: -27.71044, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

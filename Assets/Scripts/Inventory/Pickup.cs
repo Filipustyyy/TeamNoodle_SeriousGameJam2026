@@ -1,25 +1,18 @@
 using UnityEngine;
 
-public class Pickup : MonoBehaviour, IInteractable
+[RequireComponent(typeof(Collider2D))]
+public class Pickup : MonoBehaviour
 {
-    [SerializeField] private Item item;
+    [SerializeField] private CableExtensionConfig config;
 
-    public Item Item => item;
-
-    public void Interact(GameObject interactor)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (Inventory.instance == null) return;
-        Inventory.instance.TryPickup(this);
-    }
+        if (config == null) return;
 
-    public void OnPickedUp()
-    {
-        gameObject.SetActive(false);
-    }
+        var tether = other.GetComponentInParent<PlayerTether>();
+        if (tether == null) return;
 
-    public void Drop(Vector3 position)
-    {
-        transform.position = position;
-        gameObject.SetActive(true);
+        tether.AddCordLength(config.LengthBonus);
+        Destroy(gameObject);
     }
 }

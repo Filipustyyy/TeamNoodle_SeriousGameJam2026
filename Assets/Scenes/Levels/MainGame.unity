@@ -603,7 +603,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2241128157926218843, guid: e9bbf7f2c87cb4a9db70db82bf11ff9a, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2241128157926218843, guid: e9bbf7f2c87cb4a9db70db82bf11ff9a, type: 3}
       propertyPath: baseCordLength

@@ -5,17 +5,21 @@ public class PowerSwitch : MonoBehaviour, IInteractable
     [Header("Connections")]
     [SerializeField] private PowerOutlet targetOutlet;
     
-    private SpriteRenderer _spriteRenderer;
+    [Header("Sprites")]
     [SerializeField] private Sprite onSprite;
     [SerializeField] private Sprite offSprite;
+    [SerializeField] private GameObject hintSpriteObject;
+    
+    private SpriteRenderer _spriteRenderer;
     
     private bool _isOn;
 
     void Awake()
     {
-        _isOn = false;
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _isOn = false;
         _spriteRenderer.sprite = offSprite;
+        HideHint();
     }
     
     public void Interact(GameObject interactor)
@@ -25,8 +29,20 @@ public class PowerSwitch : MonoBehaviour, IInteractable
             targetOutlet.PowerOn();
             _isOn = true;
             _spriteRenderer.sprite = onSprite;
+            HideHint();
             AudioManager.instance.PlayOneShot(FMODEvents.instance.powerSwitch, transform.position);
         }
         
+    }
+
+    public void DisplayHint()
+    {
+        if (_isOn) return;
+        hintSpriteObject.SetActive(true);
+    }
+
+    public void HideHint()
+    {
+        hintSpriteObject.SetActive(false);
     }
 }

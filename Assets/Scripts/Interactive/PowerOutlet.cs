@@ -13,7 +13,8 @@ public class PowerOutlet : MonoBehaviour, IInteractable
     [SerializeField] private Sprite offUnpluggedSprite;
     [SerializeField] private Sprite onPluggedSprite;
     [SerializeField] private Sprite offPluggedSprite;
-
+    [SerializeField] private GameObject hintSpriteObject;
+    
     private StudioEventEmitter emitter;
 
     private void Start()
@@ -21,6 +22,7 @@ public class PowerOutlet : MonoBehaviour, IInteractable
         emitter = AudioManager.instance.InitializeEventEmitter(FMODEvents.instance.socketIdle, this.gameObject);
         emitter.Play();
         UpdateSprite();
+        HideHint();
     }
 
     public void Interact(GameObject interactor)
@@ -61,6 +63,16 @@ public class PowerOutlet : MonoBehaviour, IInteractable
             spriteRenderer.sprite = offPluggedSprite;
         else
             spriteRenderer.sprite = offUnpluggedSprite;
+    }
+
+    public void DisplayHint()
+    {
+        hintSpriteObject.SetActive(true);
+    }
+
+    public void HideHint()
+    {
+        hintSpriteObject.SetActive(false);
     }
 
     private void OnDrawGizmosSelected()

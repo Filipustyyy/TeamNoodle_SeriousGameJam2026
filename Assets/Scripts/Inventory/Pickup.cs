@@ -13,6 +13,7 @@ public class Pickup : MonoBehaviour
         if (tether == null) return;
 
         tether.AddCordLength(config.LengthBonus);
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.cableCollected, transform.position);
         Destroy(gameObject);
     }
 }

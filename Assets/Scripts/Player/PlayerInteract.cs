@@ -101,30 +101,6 @@ public class PlayerInteract : MonoBehaviour
         if (DialogBus.IsOpen) return;
         if (Time.frameCount == DialogBus.LastClosedFrame) return;
         _currentClosest?.Interact(gameObject);
-        
-        // _interactables = Physics2D.OverlapCircleAll(transform.position, interactRadius, interactableLayer);
-        //
-        // if (_interactables.Length == 0) return;
-        //
-        // IInteractable closestInteractable = null;
-        // float closestDistance = float.MaxValue;
-        //
-        // foreach (var hit in _interactables)
-        // {
-        //     var interactable = hit.GetComponent<IInteractable>() ?? hit.GetComponentInParent<IInteractable>();
-        //     
-        //     if (interactable != null)
-        //     {
-        //         float distance = Vector2.Distance(transform.position, hit.transform.position);
-        //         if (distance < closestDistance)
-        //         {
-        //             closestDistance = distance;
-        //             closestInteractable = interactable;
-        //         }
-        //     }
-        // }
-        //
-        // closestInteractable?.Interact(gameObject);
     }
     
     private void OnDrawGizmosSelected()

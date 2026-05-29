@@ -10,6 +10,9 @@ public class PlayerTether : MonoBehaviour
     [SerializeField] private float baseCordLength = 7f;
     [SerializeField] private int cordSortingOrder = 5;
     private float bonusCordLength = 0f;
+    
+    [Header("Climbing")]
+    [SerializeField] private float climbForce = 30f;
 
     public float MaxCordLength => Mathf.Max(0f, baseCordLength + bonusCordLength);
     public float BaseCordLength => baseCordLength;
@@ -80,6 +83,12 @@ public class PlayerTether : MonoBehaviour
         Vector2 delta = pos - anchor;
         float maxDist = MaxCordLength;
 
+        if (InputController.IsClimbing)
+        {
+            Vector2 directionToAnchor = -delta.normalized; 
+            rb.AddForce(directionToAnchor * climbForce, ForceMode2D.Force);
+        }
+        
         if (delta.sqrMagnitude <= maxDist * maxDist) return;
 
         Vector2 clamped = anchor + delta.normalized * maxDist;

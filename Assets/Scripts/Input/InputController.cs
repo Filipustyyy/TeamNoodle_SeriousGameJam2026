@@ -9,8 +9,11 @@ public class InputController : MonoBehaviour
     public static Action OnJumpPressed;
     public static Action OnJumpReleased;
     public static Action OnInteract;
+    public static Action OnClimbPressed;
+    public static Action OnClimbReleased;
     
     public static Vector2 MoveInput { get; private set; }
+    public static bool IsClimbing { get; private set; } 
     
     private InputSystem _input;
 
@@ -23,7 +26,11 @@ public class InputController : MonoBehaviour
         
         _input.Player.Jump.started += _ => OnJumpPressed?.Invoke();
         _input.Player.Jump.canceled += _ => OnJumpReleased?.Invoke();
+        
         _input.Player.Interact.started += _ => OnInteract?.Invoke();
+        
+        _input.Player.Climb.started += _ => { OnClimbPressed?.Invoke(); IsClimbing = true; };
+        _input.Player.Climb.canceled += _ => { OnClimbReleased?.Invoke(); IsClimbing = false; };
         _input.Enable();
     }
     

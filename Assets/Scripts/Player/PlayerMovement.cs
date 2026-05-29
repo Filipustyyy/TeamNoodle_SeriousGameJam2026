@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
         baseGravity = rb.gravityScale;
+        Flip();
     }
     
     private void OnEnable()

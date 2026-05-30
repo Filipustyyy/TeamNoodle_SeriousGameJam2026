@@ -50,7 +50,7 @@ public class MainMenuManager : MonoBehaviour
     {
         PlayButtonSound();
         _musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        SceneTransition.Instance.LoadScene("MainGame");
+        SceneTransition.Instance.LoadScene("BeginningCutscene");
     }
 
     public void CreditsButton()

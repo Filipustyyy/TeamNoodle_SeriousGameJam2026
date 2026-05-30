@@ -18,9 +18,22 @@ public class PlayerAnimator : MonoBehaviour
 
     private void Update()
     {
+        if (DialogBus.IsOpen)
+        {
+            ResetAnimation();
+            return;
+        }
+        
         if (movement == null) return;
         animator.SetFloat(Speed, Mathf.Abs(movement.MoveInputX));
         animator.SetBool(IsGrounded, movement.IsGrounded);
         animator.SetFloat(VelocityY, movement.VelocityY);
+    }
+
+    private void ResetAnimation()
+    {
+        animator.SetFloat(Speed, 0f);
+        animator.SetBool(IsGrounded, true);
+        animator.SetFloat(VelocityY, 0f);
     }
 }

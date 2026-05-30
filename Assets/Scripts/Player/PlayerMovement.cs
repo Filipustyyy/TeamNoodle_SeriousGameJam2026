@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using FMOD.Studio;
@@ -102,6 +103,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (DialogBus.IsOpen) return;
+        
+        UpdateSound();
+        
         var targetSpeed = inputX * moveSpeed;
         var speedDiff = targetSpeed - rb.linearVelocity.x;
         var rate = Mathf.Abs(targetSpeed) > 0.01f ? acceleration : deceleration;
@@ -112,8 +117,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (rb.linearVelocity.y < -maxFallSpeed)
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, -maxFallSpeed);
-        
-        UpdateSound();
     }
     
     private void HandleJumpPressed()
@@ -145,21 +148,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateSound()
     {
-        if (rb.linearVelocityX != 0 && isGrounded)
+        if (MathF.Abs(rb.linearVelocityX) <= .2f || !isGrounded)
         {
-            PLAYBACK_STATE playbackState;
-            playerFootsteps.getPlaybackState(out playbackState);
-            if (playbackState == PLAYBACK_STATE.STOPPED) playerFootsteps.start();
+            playerFootsteps.stop(STOP_MODE.IMMEDIATE);
+            return;
         }
-        else
-        {
-            playerFootsteps.stop(STOP_MODE.ALLOWFADEOUT);
-        }
+
+        PLAYBACK_STATE playbackState;
+        playerFootsteps.getPlaybackState(out playbackState);
+        if (playbackState == PLAYBACK_STATE.STOPPED) playerFootsteps.start();
     }
     
-    public void StopPlayer()
+    public void StopFootsteps()
     {
-        rb.linearVelocity = new Vector2(0, 0);
+        playerFootsteps.stop(STOP_MODE.IMMEDIATE);
     }
 
     private void OnDrawGizmosSelected()

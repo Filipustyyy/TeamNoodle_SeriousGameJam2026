@@ -126,6 +126,7 @@ public class DialogPresenter : MonoBehaviour
             playerMovement.enabled = !locked;
             if (locked)
             {
+                playerMovement.StopFootsteps();
                 var rb = playerMovement.GetComponent<Rigidbody2D>();
                 if (rb != null) rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
             }

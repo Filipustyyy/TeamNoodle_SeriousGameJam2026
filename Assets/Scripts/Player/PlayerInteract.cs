@@ -101,6 +101,7 @@ public class PlayerInteract : MonoBehaviour
         if (DialogBus.IsOpen) return;
         if (Time.frameCount == DialogBus.LastClosedFrame) return;
         _currentClosest?.Interact(gameObject);
+        
     }
     
     private void OnDrawGizmosSelected()

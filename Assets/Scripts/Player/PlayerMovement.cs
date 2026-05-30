@@ -28,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
 
     private EventInstance playerFootsteps;
     private Rigidbody2D rb;
-    private PlayerTether tether;
     
     private float baseGravity;
     private float inputX;
@@ -46,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
-        tether = GetComponent<PlayerTether>();
         baseGravity = rb.gravityScale;
         Flip();
     }
@@ -71,16 +69,6 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         inputX = InputController.MoveInput.x;
-        
-        if (tether != null && tether.IsTaut && isGrounded)
-        {
-            // If pushing Right and Tether is stretched Right, OR pushing Left and Tether is stretched Left...
-            if ((inputX > 0f && tether.OutwardDirection.x > 0f) || 
-                (inputX < 0f && tether.OutwardDirection.x < 0f))
-            {
-                inputX = 0f; // Kill the input so they stop dead instead of sliding up the wall
-            }
-        }
 
         var wasGrounded = isGrounded;
         isGrounded = groundCheck &&

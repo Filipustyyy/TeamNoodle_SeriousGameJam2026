@@ -20,7 +20,7 @@ public class PlayerTether : MonoBehaviour
 
     public void AddCordLength(float delta) => bonusCordLength += delta;
     public void SetBonusCordLength(float total) => bonusCordLength = total;
-
+    
     private Rigidbody2D rb;
     private PowerOutlet currentOutlet;
 
@@ -76,13 +76,15 @@ public class PlayerTether : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (currentOutlet == null) return;
+        if (currentOutlet == null) {
+            return;
+        }
 
         Vector2 anchor = currentOutlet.transform.position;
         Vector2 pos = rb.position;
         Vector2 delta = pos - anchor;
         float maxDist = MaxCordLength;
-
+        
         if (InputController.IsClimbing)
         {
             Vector2 directionToAnchor = -delta.normalized; 

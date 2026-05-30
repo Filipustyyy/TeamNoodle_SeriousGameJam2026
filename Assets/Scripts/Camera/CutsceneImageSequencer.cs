@@ -10,24 +10,17 @@ public class CutsceneImageSequencer : MonoBehaviour
     [SerializeField] private Image fadeOverlay;
 
     [Header("Cutscene Frames")]
+    [Tooltip("Drag your converted PNG Sprites here in the order they should play.")]
     [SerializeField] private Sprite[] frames;
 
     [Header("Timings")]
     [SerializeField] private float fadeInTime = 1f;
-    [SerializeField] private float fadeOutTime = 1.5f;
-    
-    private bool _readyForNextImage = false;
+    [SerializeField] private float displayTime = 3f;
+    [SerializeField] private float fadeOutTime = 1f;
 
-    // Subscribe to the Camera's event
-    private void OnEnable()
-    {
-        CutsceneCamera.OnNextImageRequested += HandleImageRequest;
-    }
-
-    private void OnDisable()
-    {
-        CutsceneCamera.OnNextImageRequested -= HandleImageRequest;
-    }
+    [Header("Level Transition")]
+    [Tooltip("The Build Index of the gameplay scene to load when the cutscene finishes.")]
+    [SerializeField] private int nextSceneIndex = 1;
 
     private void Start()
     {
@@ -35,36 +28,31 @@ public class CutsceneImageSequencer : MonoBehaviour
         {
             StartCoroutine(PlayCutscene());
         }
-    }
-    
-    private void HandleImageRequest()
-    {
-        _readyForNextImage = true;
+        else
+        {
+            Debug.LogWarning("No frames assigned to the Cutscene Sequencer!");
+        }
     }
 
     private IEnumerator PlayCutscene()
     {
         SetOverlayAlpha(1f);
-
+        
         for (int i = 0; i < frames.Length; i++)
         {
             displayImage.sprite = frames[i];
-
-            // FADE IN
+            
             yield return StartCoroutine(FadeOverlay(1f, 0f, fadeInTime));
-
-            // WAIT FOR CAMERA
-            // This pauses the Coroutine infinitely until the camera flips the flag
-            _readyForNextImage = false;
-            yield return new WaitUntil(() => _readyForNextImage);
-
-            // FADE OUT
+            
+            yield return new WaitForSeconds(displayTime);
+            
             yield return StartCoroutine(FadeOverlay(0f, 1f, fadeOutTime));
         }
         
         SceneTransition.Instance.LoadScene("MainGame");
     }
 
+    // --- FADE LOGIC ---
     private IEnumerator FadeOverlay(float startAlpha, float endAlpha, float duration)
     {
         float elapsed = 0f;
@@ -73,11 +61,15 @@ public class CutsceneImageSequencer : MonoBehaviour
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
+            
+            // Smoothly calculate the new transparency
             overlayColor.a = Mathf.Lerp(startAlpha, endAlpha, elapsed / duration);
             fadeOverlay.color = overlayColor;
-            yield return null; 
+            
+            yield return null; // Wait for the next frame
         }
 
+        // Guarantee we hit the exact target alpha at the end
         overlayColor.a = endAlpha;
         fadeOverlay.color = overlayColor;
     }

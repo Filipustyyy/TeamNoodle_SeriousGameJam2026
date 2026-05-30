@@ -6,17 +6,19 @@ using UnityEngine;
 public class CutsceneCamera : MonoBehaviour
 {
     [Header("Path Points")]
-    [Tooltip("Set the size, drag in your waypoints, and check the boxes where images should change.")]
+    [Tooltip("Drag your empty waypoint GameObjects in here, in the order the camera should visit them.")]
     [SerializeField] private CutsceneWaypoint[] waypoints;
 
     [Header("Settings")]
     [SerializeField] private float timeBetweenPoints = 2.5f;
+
+    private UnityEngine.Camera _cam;
     
-    [Tooltip("Next image after this waypoint?")]
-    [SerializeField] private bool nextImage = false;
-
-    public static Action OnNextImageRequested;
-
+    private void Awake()
+    {
+        _cam = GetComponent<UnityEngine.Camera>();
+    }
+    
     private void Start() {
         StartCutscene();
     }
@@ -33,39 +35,34 @@ public class CutsceneCamera : MonoBehaviour
     
     private IEnumerator FollowPathRoutine()
     {
-        // 1. Snap to the first point
         transform.position = waypoints[0].point.position;
-
-        // 2. Travel the path
+        _cam.orthographicSize = waypoints[0].zoom;
         for (int i = 1; i < waypoints.Length; i++)
         {
             Transform startPoint = waypoints[i - 1].point;
             Transform targetPoint = waypoints[i].point;
+            
+            float startZoom = waypoints[i - 1].zoom;
+            float targetZoom = waypoints[i].zoom;
             
             float elapsedTime = 0f;
 
             while (elapsedTime < timeBetweenPoints)
             {
                 elapsedTime += Time.deltaTime;
+                
                 float percent = Mathf.SmoothStep(0f, 1f, elapsedTime / timeBetweenPoints);
-
+                
                 transform.position = Vector3.Lerp(startPoint.position, targetPoint.position, percent);
-
+                
+                float currentZoom = Mathf.Lerp(startZoom, targetZoom, percent);
+                if (_cam.orthographic) _cam.orthographicSize = currentZoom;
+                else _cam.fieldOfView = currentZoom;
+                
                 yield return null;
             }
-
-            // Snap perfectly to the target at the end of the movement just in case
-            transform.position = targetPoint.position;
-
-            // --- THE TRIGGER ---
-            // If the checkbox for this specific waypoint is checked, fire the event!
-            if (waypoints[i].triggerNextImage)
-            {
-                OnNextImageRequested?.Invoke();
-            }
         }
-        
-        Debug.Log("Camera Path Finished!");
+        Debug.Log("Cutscene Finished!");
     }
     
     private void OnDrawGizmos()
@@ -84,7 +81,7 @@ public class CutsceneCamera : MonoBehaviour
         
         if (waypoints[waypoints.Length - 1].point != null)
         {
-            Gizmos.color = Color.red; 
+            Gizmos.color = Color.red;
             Gizmos.DrawSphere(waypoints[waypoints.Length - 1].point.position, 0.3f);
         }
     }

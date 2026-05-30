@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6923436564681360281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5905315990237205827}
+  - component: {fileID: 4301003652845708460}
+  - component: {fileID: 1663892266041386335}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5905315990237205827
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6923436564681360281}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 500.17325, y: 197.30415, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4301003652845708460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6923436564681360281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f578eb16d4d2c0428b6def01a4d7164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+--- !u!114 &1663892266041386335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6923436564681360281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b87e871fd1822a46b61f17848c8b274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FMODEvents
+  <ambience>k__BackingField:
+    Guid:
+      Data1: 590749755
+      Data2: 1205938170
+      Data3: 1108873402
+      Data4: -706332192
+    Path: event:/SFX/Ambience/DroneDark
+  <cityAmbience>k__BackingField:
+    Guid:
+      Data1: -1832276754
+      Data2: 1313178901
+      Data3: -1373179239
+      Data4: -1981038512
+    Path: event:/SFX/Ambience/CityAmbience
+  <music>k__BackingField:
+    Guid:
+      Data1: -792888607
+      Data2: 1293657288
+      Data3: 1993664686
+      Data4: 1173510888
+    Path: event:/Music/Music1
+  <menuMusic>k__BackingField:
+    Guid:
+      Data1: 759871066
+      Data2: 1331783883
+      Data3: 2014378378
+      Data4: -1042728576
+    Path: event:/Music/MenuMusic
+  <playerFootsteps>k__BackingField:
+    Guid:
+      Data1: -33800654
+      Data2: 1312163689
+      Data3: -1380684389
+      Data4: 1701444626
+    Path: event:/SFX/Player/PlayerFootstepsMetal
+  <playerGrounded>k__BackingField:
+    Guid:
+      Data1: 2065781209
+      Data2: 1131540463
+      Data3: 1764643979
+      Data4: 518177796
+    Path: event:/SFX/Player/Grounded
+  <attachTether>k__BackingField:
+    Guid:
+      Data1: -1542888644
+      Data2: 1270012516
+      Data3: 642182539
+      Data4: 1279712772
+    Path: event:/SFX/Socket/AttachTether
+  <socketIdle>k__BackingField:
+    Guid:
+      Data1: 94462063
+      Data2: 1197179346
+      Data3: -1443423871
+      Data4: 543350826
+    Path: event:/SFX/Socket/SocketIdle
+  <powerSwitch>k__BackingField:
+    Guid:
+      Data1: -1856877421
+      Data2: 1275880660
+      Data3: 1436855983
+      Data4: -1116009288
+    Path: event:/SFX/Gameplay/SwitchSocket
+  <cableCollected>k__BackingField:
+    Guid:
+      Data1: 1085612649
+      Data2: 1138401658
+      Data3: 1416083349
+      Data4: -450680729
+    Path: event:/SFX/Gameplay/CableCollected
+  <button>k__BackingField:
+    Guid:
+      Data1: -358149505
+      Data2: 1135031356
+      Data3: -456189515
+      Data4: -1342685459
+    Path: event:/MouseClick
